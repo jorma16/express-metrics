@@ -1,5 +1,5 @@
 module.exports = {
   measurement: {
-    name: 'back-intranet'
+    name: 'mtrics-express'
   }
 };
