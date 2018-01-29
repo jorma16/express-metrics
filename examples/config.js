@@ -6,10 +6,7 @@ module.exports = {
     duration: 'integer',
     code: 'integer',
     bytes: 'integer',
-    url: 'string',
-    domain: 'string',
-    referer: 'string',
-    userEmail: 'string'
+    url: 'string'
   },
   database: {
     host: 'localhost',

@@ -41,8 +41,8 @@ module.exports = (config) => {
     const url = req.url;
     const route = req.route.path;
     const referer = req.headers.referer;
-    const userEmail = req.user.email;
-    const country = getCountry(req.ip);
+    const userEmail = req.user ? req.user.email : null;
+    const country = req.ip ? getCountry(req.ip) : 'ES';
 
     const tags = {
       type: parseInt(code / 100, 10) | 0,
