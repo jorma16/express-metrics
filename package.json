@@ -1,5 +1,5 @@
 {
-  "name": "express-metrics",
+  "name": "metrics-express",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
