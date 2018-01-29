@@ -17,7 +17,7 @@
     "metrics",
     "grafana"
   ],
-  "author": "jorma16",
+  "author": "j0rma",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jorma16/express-metrics/issues"
