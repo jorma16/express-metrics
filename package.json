@@ -1,0 +1,71 @@
+{
+  "name": "express-metrics",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jorma16/express-metrics.git"
+  },
+  "keywords": [
+    "express",
+    "influx",
+    "wrapper",
+    "metrics",
+    "grafana"
+  ],
+  "author": "jorma16",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jorma16/express-metrics/issues"
+  },
+  "homepage": "https://github.com/jorma16/express-metrics#readme",
+  "devDependencies": {
+    "express": "4.16.2",
+    "lodash": "4.17.4",
+    "xo": "0.18.2"
+  },
+  "dependencies": {
+    "geoip-lite": "1.2.1",
+    "influxdb-nodejs": "2.7.6",
+    "on-headers": "1.0.1"
+  },
+  "xo": {
+    "space": true,
+    "rules": {
+      "no-unused-vars": [
+        "error",
+        {
+          "ignoreRestSiblings": true,
+          "args": "none"
+        }
+      ],
+      "no-warning-comments": [
+        0
+      ],
+      "arrow-parens": [
+        "error",
+        "always"
+      ],
+      "object-shorthand": [
+        "off"
+      ],
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ]
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "paths": [
+            "./"
+          ]
+        }
+      }
+    }
+  }
+}
