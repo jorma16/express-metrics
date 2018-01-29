@@ -1,13 +1,15 @@
 const Influx = require('influxdb-nodejs');
 const onHeaders = require('on-headers');
 const geoip = require('geoip-lite');
+const _ = require('lodash');
 const baseConfig = require('./config.base');
 
 module.exports = (config) => {
-  if (!config) {
-    config = baseConfig;
+  function setConfig(config) {
+    return _.merge(baseConfig, config);
   }
 
+  config = setConfig(config);
   const client = new Influx(`http://${config.database.host}:${config.database.port}/${config.database.name}`);
   const { schema } = client;
 
