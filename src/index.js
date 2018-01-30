@@ -25,14 +25,22 @@ module.exports = (config) => {
     }
   });
 
+  function getIp(req) {
+    let ip = req.ip;
+    if (!ip) {
+      [ip] = req.headers['x-forwarded-for'].split(',');
+    }
+
+    return ip;
+  }
+
   function getCountry(ip) {
     if (ip.indexOf(':') > -1) {
       ip = ip.split(':').pop();
     }
 
     const geoInfo = geoip.lookup(ip);
-
-    return geoInfo ? geoInfo.country : 'ES';
+    return geoInfo.country;
   }
 
   function transform(req, res) {
@@ -44,7 +52,8 @@ module.exports = (config) => {
     const route = req.route.path;
     const referer = req.headers.referer;
     const userEmail = req.user ? req.user.email : null;
-    const country = req.ip ? getCountry(req.ip) : 'ES';
+    const ip = getIp(req);
+    const country = getCountry(ip);
 
     const tags = {
       type: parseInt(code / 100, 10) | 0,

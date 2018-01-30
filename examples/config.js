@@ -1,5 +1,5 @@
 module.exports = {
   measurement: {
-    name: 'mtrics-express'
+    name: 'express'
   }
 };
