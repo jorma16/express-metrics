@@ -16,5 +16,6 @@ module.exports = {
     port: 8086,
     name: 'nodejs'
   },
+  blackList: [],
   queueFlush: 100
 };

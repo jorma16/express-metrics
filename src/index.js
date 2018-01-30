@@ -67,6 +67,11 @@ module.exports = (config) => {
   }
 
   return (req, res, next) => {
+    const userAgent = req.headers['user-agent'];
+    if (config.blackList.indexOf(userAgent) > -1) {
+      return next();
+    }
+
     const start = Date.now();
 
     onHeaders(res, async () => {
