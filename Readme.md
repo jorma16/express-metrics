@@ -48,8 +48,8 @@ This library uses:
 - on-headers 1.0.1: Easily manage the response just before we send it.
 - lodash 4.17.4: Utility library
 ## Contributions
-This project exists thanks to the following people and enterprises:
-- [Avantio](https://github.com/Avantio-ITS)
-- [Artem Molonosov](https://github.com/ti0ma)
+This project exists thanks to the following people:
+- [ti0ma](https://github.com/ti0ma)
 - [David Bayo](https://github.com/davidbayo10)
+- [Pablo BC] (https://github.com/pballester)
 

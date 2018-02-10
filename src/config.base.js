@@ -7,8 +7,7 @@ module.exports = {
     code: 'integer',
     bytes: 'integer',
     url: 'string',
-    domain: 'string',
-    referer: 'string'
+    domain: 'string'
   },
   database: {
     host: 'localhost',
