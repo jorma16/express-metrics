@@ -3,7 +3,7 @@ const { setConfig } = require('./utils/config');
 const Influx = require('./utils/db');
 const transform = require('./utils/transformer');
 
-module.exports = (config) => {
+module.exports = (config, customTransform) => {
   config = setConfig(config);
 
   const db = new Influx(config);
@@ -23,7 +23,7 @@ module.exports = (config) => {
         duration: Date.now() - start
       };
 
-      const [tags, fields] = transform(mReq, res);
+      const [tags, fields] = transform(mReq, res, customTransform);
 
       try {
         await db.client.write(config.measurement.name)

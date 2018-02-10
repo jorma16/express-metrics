@@ -8,8 +8,7 @@ module.exports = {
     bytes: 'integer',
     url: 'string',
     domain: 'string',
-    referer: 'string',
-    userEmail: 'string'
+    referer: 'string'
   },
   database: {
     host: 'localhost',

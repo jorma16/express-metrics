@@ -2,8 +2,12 @@ const geoip = require('geoip-lite');
 
 const getIp = (req) => {
   let ip = req.ip;
-  if (!ip) {
+  if (!ip && req.headers['x-forwarded-for']) {
     [ip] = req.headers['x-forwarded-for'].split(',');
+  }
+
+  if (!ip) {
+    ip = '127.0.0.1';
   }
 
   return ip;
@@ -14,8 +18,12 @@ const getCountry = (ip) => {
     [ip] = ip.split(':');
   }
 
-  const { country } = geoip.lookup(ip);
-  return country;
+  const geo = geoip.lookup(ip);
+  if (geo) {
+    return geo.country;
+  }
+
+  return 'ES';
 };
 
 module.exports = { getIp, getCountry };

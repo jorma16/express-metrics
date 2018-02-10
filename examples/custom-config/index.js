@@ -1,7 +1,9 @@
 const express = require('express');
 const _ = require('lodash');
 const config = require('./config');
-const influx = require('../../src')(config);
+const influx = require('../../src')(config, (req, res) => {
+  return [{}, { userEmail: req.user }];
+});
 
 const app = express();
 app.use(influx);
