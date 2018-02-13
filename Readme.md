@@ -38,6 +38,19 @@ app.use(influx);
 ```
 Here we can see how to configure our express application, for example passing the previous config file and adding a transform function that returns an array with an empty object as extended tags and an object with our new metric in the fields object.
 
+If you want, can apply a blacklist in your config file, to allow the middleware to do not track some user-agents.
+```
+module.exports = {
+  measurement: {
+    name: 'express'
+  },
+  schema: {
+    userEmail: 'string'
+  },
+  blackList: ['your-custom-user-agent']
+};
+```
+
 ## Requeriments
 This library is thought to be used with an influxDb database and a grafana dashboard to paint the metrics is included in the project in the `dashboard.json` file, ready to be imported.
 
@@ -47,9 +60,10 @@ This library uses:
 - influxdb-nodejs 2.7.6: Connectivity layer with influx
 - on-headers 1.0.1: Easily manage the response just before we send it.
 - lodash 4.17.4: Utility library
+
 ## Contributions
 This project exists thanks to the following people:
 - [ti0ma](https://github.com/ti0ma)
 - [David Bayo](https://github.com/davidbayo10)
-- [Pablo BC] (https://github.com/pballester)
+- [Pablo BC](https://github.com/pballester)
 
