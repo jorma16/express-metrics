@@ -3,10 +3,13 @@ const { setConfig } = require('./utils/config');
 const Influx = require('./utils/db');
 const transform = require('./utils/transformer');
 
-module.exports = (config, customTransform) => {
-  config = setConfig(config);
+let db;
+let config;
 
-  const db = new Influx(config);
+module.exports = (configuration, customTransform) => {
+  config = setConfig(configuration);
+
+  db = new Influx(config);
   db.initializeDb();
 
   return (req, res, next) => {
@@ -36,4 +39,8 @@ module.exports = (config, customTransform) => {
 
     next();
   };
+};
+
+module.exports.write = async (tags, fields) => {
+  return db.client.write(config.measurement.name).tag(tags).field(fields);
 };
