@@ -6,9 +6,7 @@ const transform = (req, res, extend) => {
     duration,
     method,
     url,
-    route: {
-      path: route
-    }
+    route
   } = req;
 
   const { statusCode: code } = res;
@@ -20,7 +18,7 @@ const transform = (req, res, extend) => {
   let tags = {
     type: parseInt(code / 100, 10) | 0,
     method,
-    url: route,
+    url: route ? route.path : undefined,
     country
   };
 
