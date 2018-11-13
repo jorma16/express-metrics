@@ -1,6 +1,6 @@
 {
   "name": "mtrics-express",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -25,13 +25,13 @@
   "homepage": "https://github.com/jorma16/express-metrics#readme",
   "devDependencies": {
     "express": "4.16.2",
-    "xo": "0.18.2"
+    "xo": "0.23.0"
   },
   "dependencies": {
     "geoip-lite": "1.2.1",
     "influxdb-nodejs": "2.7.6",
-    "on-headers": "1.0.1",
-    "lodash": "4.17.4"
+    "lodash": "4.17.11",
+    "on-headers": "1.0.1"
   },
   "xo": {
     "space": true,
