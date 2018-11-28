@@ -18,7 +18,7 @@ const transform = (req, res, extend) => {
   let tags = {
     type: parseInt(code / 100, 10) | 0,
     method,
-    url: route ? route.path : undefined,
+    route: route.path,
     country
   };
 

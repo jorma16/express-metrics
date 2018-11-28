@@ -1,7 +1,7 @@
 const geoip = require('geoip-lite');
 
 const getIp = (req) => {
-  let ip = req.ip;
+  let { ip } = req;
   if (!ip && req.headers['x-forwarded-for']) {
     [ip] = req.headers['x-forwarded-for'].split(',');
   }
