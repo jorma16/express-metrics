@@ -26,4 +26,10 @@ const getCountry = (ip) => {
   return 'ES';
 };
 
-module.exports = { getIp, getCountry };
+const getUserAgent = (req) => {
+  const { 'user-agent': userAgent = 'Unexpecified' } = req.headers;
+
+  return userAgent;
+};
+
+module.exports = { getIp, getCountry, getUserAgent };

@@ -1,5 +1,5 @@
 const _ = require('lodash');
-const { getIp, getCountry } = require('./getters');
+const { getIp, getCountry, getUserAgent } = require('./getters');
 
 const transform = (req, res, extend) => {
   const {
@@ -14,12 +14,15 @@ const transform = (req, res, extend) => {
 
   const ip = getIp(req);
   const country = getCountry(ip);
+  const userAgent = getUserAgent(req);
 
   let tags = {
     type: parseInt(code / 100, 10) | 0,
     method,
-    route: route.path,
-    country
+    route: route ? route.path : undefined,
+    country,
+    ip,
+    userAgent
   };
 
   let fields = {
@@ -27,7 +30,9 @@ const transform = (req, res, extend) => {
     code,
     bytes,
     url,
-    method
+    method,
+    ip,
+    userAgent
   };
 
   if (!extend) {
