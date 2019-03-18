@@ -11,7 +11,7 @@ app.use((req, res, next) => {
   setTimeout(next, _.random(0, 2000));
 });
 
-app.get('/users/me', (req, res) => {
+app.get('/users/me', async (req, res) => {
   res.send({
     account: 'me',
     name: 'My user'

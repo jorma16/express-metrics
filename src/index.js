@@ -30,10 +30,10 @@ module.exports = (configuration, customTransform) => {
 
       try {
         await db.client.write(config.measurement.name)
-        .tag(tags)
-        .field(fields);
-      } catch (err) {
-        console.error(err);
+          .tag(tags)
+          .field(fields);
+      } catch (error) {
+        throw error;
       }
     });
 
@@ -41,6 +41,16 @@ module.exports = (configuration, customTransform) => {
   };
 };
 
-module.exports.write = async (tags, fields) => {
+module.exports.write = (tags, fields) => {
+  tags = Object.entries(tags).reduce((obj, [key, value]) => {
+    if (value === '') {
+      return obj;
+    }
+
+    obj[key] = value;
+
+    return obj;
+  }, {});
+
   return db.client.write(config.measurement.name).tag(tags).field(fields);
 };
