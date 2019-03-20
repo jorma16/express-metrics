@@ -32,9 +32,7 @@ module.exports = (configuration, customTransform) => {
         await db.client.write(config.measurement.name)
           .tag(tags)
           .field(fields);
-      } catch (error) {
-        throw error;
-      }
+      } catch (error) {}
     });
 
     next();

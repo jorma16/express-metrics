@@ -16,9 +16,7 @@ class Influx {
           await this.client.syncWrite();
         }
       });
-    } catch (error) {
-      console.error('Database creating fails: ', error);
-    }
+    } catch (error) {}
   }
 }
 
