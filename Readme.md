@@ -56,14 +56,13 @@ This library is thought to be used with an influxDb database and a grafana dashb
 
 ## Dependencies
 This library uses:
-- geoip-lite 1.2.1: To geolocalize the ip directions and be able to draw on a map.
-- influxdb-nodejs 2.7.6: Connectivity layer with influx
-- on-headers 1.0.1: Easily manage the response just before we send it.
-- lodash 4.17.4: Utility library
+- geoip-lite 1.4.7: To geolocalize the ip directions and be able to draw on a map.
+- influxdb-nodejs 3.1.0: Connectivity layer with influx
+- on-headers 1.0.2: Easily manage the response just before we send it.
+- lodash 4.17.21: Utility library
 
 ## Contributions
 This project exists thanks to the following people:
 - [ti0ma](https://github.com/ti0ma)
 - [David Bayo](https://github.com/davidbayo10)
 - [Pablo BC](https://github.com/pballester)
-
