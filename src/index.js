@@ -1,3 +1,4 @@
+const _ = require('lodash');
 const onHeaders = require('on-headers');
 const { setConfig } = require('./utils/config');
 const Influx = require('./utils/db');
@@ -14,6 +15,7 @@ module.exports = (configuration, customTransform) => {
 
   return (req, res, next) => {
     const userAgent = req.headers['user-agent'];
+
     if (config.blackList.indexOf(userAgent) > -1) {
       return next();
     }
@@ -21,10 +23,7 @@ module.exports = (configuration, customTransform) => {
     const start = Date.now();
 
     onHeaders(res, async () => {
-      const mReq = {
-        ...req,
-        duration: Date.now() - start
-      };
+      const mReq = _.set(req, 'duration', Date.now() - start);
 
       const [tags, fields] = transform(mReq, res, customTransform);
 
